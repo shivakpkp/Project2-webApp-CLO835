@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sql-deployment
+spec:
+  selector:
+    matchLabels:
+      app: sql-deployment
+  template:
+    metadata:
+      labels:
+        app: sql-deployment
+    spec:
+      containers:
+      - name: sql
+        image: 587312347089.dkr.ecr.us-east-1.amazonaws.com/mysql-image:v0.1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "pw"
+        ports:
+        - containerPort: 3306
