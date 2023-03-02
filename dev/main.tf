@@ -20,7 +20,7 @@ data "aws_availability_zones" "available" {
 resource "aws_instance" "vm1" {
 
   ami                    = data.aws_ami.latest_amazon_linux.id
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
   #tsubnet_id              = aws_subnet.aws_subnet_block.id
   vpc_security_group_ids = [aws_security_group.vm_security_group.id]
   key_name               = aws_key_pair.vm_key.key_name

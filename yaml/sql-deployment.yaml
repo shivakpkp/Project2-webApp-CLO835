@@ -12,10 +12,12 @@ spec:
         app: sql-deployment
     spec:
       containers:
-      - name: sql
+      - name: sqldb
         image: 587312347089.dkr.ecr.us-east-1.amazonaws.com/mysql-image:v0.1
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "pw"
         ports:
         - containerPort: 3306
+      imagePullSecrets:
+      - name: regcred
