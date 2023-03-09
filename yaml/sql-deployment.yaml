@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: sql-deployment
+      app: mysql
   template:
     metadata:
       labels:
-        app: sql-deployment
+        app: mysql
     spec:
       containers:
       - name: sqldb
