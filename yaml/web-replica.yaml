@@ -1,7 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: app-deployment
+  name: web-replica
+  labels:
+    app: employees
 spec:
   replicas: 3
   selector:
@@ -23,11 +25,11 @@ spec:
         - name: DBPWD
           value: "pw"
         - name: APP_COLOR
-          value: "green"
+          value: "blue"
         - name: DBPORT
           value: "3306"
         - name: DBHOST
-          value: sql-service
+          value: 10.244.0.24
         resources:
           limits:
             memory: "128Mi"
